@@ -438,6 +438,7 @@ sub load_consoletests() {
         if (get_var("DESKTOP") !~ /textmode/) {
             loadtest "console/xorg_vt.pm";
         }
+        loadtest "console/sysconfig_yast.pm";
         loadtest "console/zypper_lr.pm";
         if (need_clear_repos) {
             loadtest "console/zypper_clear_repos.pm";
