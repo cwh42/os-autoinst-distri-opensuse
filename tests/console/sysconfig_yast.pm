@@ -6,13 +6,13 @@ use testapi;
 sub run() {
     my $self = shift;
     
-    script_run("grep '^PKGMGR_INSTALL_RECOMMENDED=' /etc/sysconfig/yast2 > /dev/$serialdev");
+    script_run("grep '^PKGMGR_INSTALL_RECOMMENDED=' /etc/sysconfig/yast2 | tee /dev/$serialdev");
 
     if (get_var("NORECOMMENDS")) {
-        wait_serial("PKGMGR_INSTALL_RECOMMENDED=\"no\"", 20) || die "PKGMGR_INSTALL_RECOMMENDED should be 'no'";
+        wait_serial('PKGMGR_INSTALL_RECOMMENDED="no"', 10) || die "PKGMGR_INSTALL_RECOMMENDED should be 'no'";
     }
     else {
-        wait_serial("PKGMGR_INSTALL_RECOMMENDED=\"yes\"", 20) || die "PKGMGR_INSTALL_RECOMMENDED should be 'yes'";
+        wait_serial('PKGMGR_INSTALL_RECOMMENDED="yes"', 10) || die "PKGMGR_INSTALL_RECOMMENDED should be 'yes'";
     }
 }
 

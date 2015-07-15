@@ -39,6 +39,11 @@ sub run() {
         }
 
         wait_idle 1;
+        send_key 'alt-d'; # Dependencies again (to make a screenshot)
+        assert_screen "inst_recommended_packages_unchecked";
+        send_key 'esc'; # Leave menu
+
+        wait_idle 1;
         send_key 'alt-a'; # Accept
 
         wait_idle 1;
