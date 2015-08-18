@@ -39,7 +39,7 @@ sub run() {
     
     send_key 'alt-s'; # Stop the reboot countdown
     
-    send_key "ctrl-alt-f2";
+    send_key "ctrl-alt-f5";
     if ( get_var("LIVECD") ) {
         # LIVE CDa do not run inst-consoles as started by inst-linux (it's regular live run, auto-starting yast live installer)
         assert_screen "text-login", 10;

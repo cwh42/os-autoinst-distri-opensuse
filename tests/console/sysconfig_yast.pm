@@ -6,7 +6,7 @@ use testapi;
 sub run() {
     my $self = shift;
 
-    assert_script_run "zypper -n in grep"; # make sure grep is installed
+    assert_script_run " zypper -n in grep"; # make sure grep is installed
 
     script_run("grep '^PKGMGR_INSTALL_RECOMMENDED=' /etc/sysconfig/yast2 | tee /dev/$serialdev");
 

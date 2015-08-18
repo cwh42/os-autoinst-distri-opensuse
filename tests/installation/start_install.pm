@@ -89,7 +89,7 @@ sub run() {
             }
             send_key $cmd{instdetails};
         }
-        if ( get_var("DVD") && !get_var("NOIMAGES") ) {
+        if ( get_var("DVD") && !get_var("NOIMAGES") && !check_var('NORECOMMENDS',1) ) {
             if ( check_var( 'DESKTOP', 'kde' ) ) {
                 assert_screen 'kde-imagesused', 500;
             }

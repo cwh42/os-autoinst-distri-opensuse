@@ -5,7 +5,7 @@ use testapi;
 sub run() {
     my $self = shift;
 
-    if (check_var('DESKTOP', 'textmode')) {
+    if (check_var('DESKTOP', 'textmode') || check_var('NORECOMMENDS', 1)) {
         assert_screen 'linux-login', 200;
         return;
     }
